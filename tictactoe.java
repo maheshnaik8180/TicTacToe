@@ -42,9 +42,10 @@ public static void main(String[] args)
 		{
 			char computer = 'X';
 			return computer;
-}
+		}
 
-}
+  }
+
 
 }
 
