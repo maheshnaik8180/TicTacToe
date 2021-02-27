@@ -9,14 +9,14 @@ public class tictactoe
 	{
 		Scanner sc = new Scanner(System.in);
 		System.out.println("player chose X or O");	
-		//System.out.println("player chose X or O\r");
+		
 		char player = sc.next().charAt(0);
 
 		char computer = chooseLetter(player);
 		System.out.println("computer"+computer);
 		System.out.println("computer\r"+computer);
 
-		System.out.println("Let's start the game");
+		System.out.println("Let's Start The Game");
 		System.out.println("Current board is :");
 		showBoard();
 
@@ -29,9 +29,7 @@ public class tictactoe
 		board[0] = ' ';
 
 		for(int i=1; i<10; i++)
-		//char[] board = new char[10];     
 
-		//for(int i=1; i<9; i++)
 
 	{
 			board[i] = ' ';
