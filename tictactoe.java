@@ -1,78 +1,92 @@
 import java.util.Scanner;
 
-public class tictactoe
-{
-	static Scanner sc = new Scanner(System.in);
+public class tictactoe {
+
+	static  char[] board = new char[10];
+	private static char ex = 'X';
+	private static char zero = '0';
+	private static char player;
+	private static char computer;
+	 
+	public static char[]  creatingBoard() {
 
 
-	public static void main(String[] args) 	
-	{
-		Scanner sc = new Scanner(System.in);
-		System.out.println("player chose X or O");	
-		
-		char player = sc.next().charAt(0);
-
-		char computer = chooseLetter(player);
-		System.out.println("computer"+computer);
-		System.out.println("computer\r"+computer);
-
-		System.out.println("Let's Start The Game");
-		System.out.println("Current board is :");
-		showBoard();
-
-
-	}
-
-	public static char[] boardDesign()
-	{
-		char[] board = new char[10];
-		board[0] = ' ';
-
-		for(int i=1; i<10; i++)
-
-
-	{
-			board[i] = ' ';
+		for (int i = 1; i < board.length; i++) {
+		board[i] = ' ';
 		}
-
 		return board;
-	}
-
-	public static char chooseLetter(char player)
-{
-		if ( Character.toLowerCase(player) == 'x')
-		{
-				char computer = '0';
-				return computer;
 		}
+	public static void allowplayerchoose()
+	{
+		System.out.println("which symbol you want to choose X or 0");
+		Scanner sc = new Scanner(System.in);
+		String input = sc.nextLine();
+		player = input.charAt(0);
+		
+		if(player == ex)
+		{
+			player = ex;
+			computer = zero;
+			System.out.println("player symbol is : " + player);
 
+		}
+		else if(player == zero)
+		{
+			player = zero;
+			computer =ex;
+			System.out.println("player symbol is : " + player);
+        }
 		else
 		{
-			char computer = 'X';
-			return computer;
+			System.out.println("Invalid");
 		}
-}
-
-				public static void showBoard()
+	}
+	public static void showBoard()
 	{
-		char[] board = boardDesign();
+		System.out.println("Empty board");
+		System.out.println(" ");
+		System.out.println(" " +board[1]+ " " + "|" +" " +board[2]+ " " + "|" +"" +board[3]+ " ");
+		System.out.println("............");
+		System.out.println(" " +board[4]+ " " + "|" +" " +board[5]+ " " + "|" +"" +board[6]+ " ");
+		System.out.println("............");
+		System.out.println(" " +board[7]+ " " + "|" +" " +board[8]+ " " + "|" +"" +board[9]+ " ");
+		
+	}
+	public static void userMove()
+	{
+		System.out.println("Enter the position you want to move");
+		Scanner sc = new Scanner(System.in);
+		int position = sc.nextInt();
+		if(position>=1 && position <=9)
+		{
+		if(board[position]==' ')
+		{
+			board[position] = player;
+			showBoard();
+		}
+		else
+		{
+			System.out.println("Invalid move, position is not empty");
+		}
+		}
+		else
+		{
+			System.out.println("You entered a invalid position");
 
-
-		System.out.println("         |                    |           ");
-		System.out.println(board[7]+"        |          "+board[8]+"         |          "+board[9]);
-  		System.out.println("---------|--------------------|-----------");
-	    System.out.println("         |                    |           ");
-	    System.out.println(board[4]+"        |          "+board[5]+"         |          "+board[6]);
-	    System.out.println("---------|--------------------|-----------");
-	    System.out.println("         |                    |           ");
-	    System.out.println(board[1]+"        |          "+board[2]+"         |          "+board[3]);
+		}
+	
 
 	}
+		
+	
+		
+		public static void main(String args[]) {
 
-
-
-  }
-
-
-
-
+			System.out.println("Welcome to tic tac board");
+			board = creatingBoard();
+			
+			allowplayerchoose();
+			showBoard();
+			userMove();
+		}
+	}
