@@ -80,6 +80,23 @@ public class tictactoe {
 
 	}
 
+//do toss to check who plays first move
+	public static int doToss()
+	{
+		int tossResult = (int) Math.floor(Math.random() * 10) % 2;
+		if(tossResult == 0)
+		{
+			System.out.println("User/Player plays first");
+		}
+		else
+		{
+			System.out.println("Computer plays first");
+		}
+		return tossResult;
+	}
+
+
+
 	public static void main(String args[]) {
 
 		System.out.println("Welcome to tic tac board");
@@ -87,6 +104,7 @@ public class tictactoe {
 		allowPlayerToChoose();
 		showBoard();
 		userMove();
+		int toss = doToss();
 
 	}
 }
